@@ -73,7 +73,6 @@ const controlServings = function (newServings) {
   Model.updateServings(newServings);
 
   // Update the recipe view
-  // recipeView.render(Model.state.recipe);
   recipeView.update(Model.state.recipe);
 };
 
@@ -119,7 +118,7 @@ const controlAddRecipe = async function (newRecipe) {
       addRecipeView._toggleWindow();
     }, MODAL_CLOSE_SEC * 1000);
   } catch (err) {
-    console.error('💩', err);
+    console.error(err);
     addRecipeView.renderError(err.message);
   }
 };
@@ -132,7 +131,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  console.log('Welcome!');
 };
 
 init();
